@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Защита интеллектуальной собственности | ООО Интеграция</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF;
+            color: #1E293B;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Строгий юридический стиль: темно-синий (#0B2B40, #0F2C3D), серый, белый */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Header */
+        .header {
+            background-color: #0F2C3D;
+            color: #FFFFFF;
+            padding: 24px 0;
+            border-bottom: 2px solid #C8A245;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            color: #B0C4DE;
+            margin-top: 4px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav a:hover {
+            color: #C8A245;
+            border-bottom-color: #C8A245;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.25s;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background-color: #C8A245;
+            color: #0F2C3D;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary:hover {
+            background-color: #B08A34;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #C8A245;
+            color: #C8A245;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(200,162,69,0.1);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #F8FAFC 0%, #EDF2F7 100%);
+            padding: 80px 0;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .hero-content h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #0F2C3D;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #334155;
+            margin-bottom: 32px;
+            max-width: 550px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 16px;
+        }
+
+        .stat span {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0F2C3D;
+        }
+
+        /* Cards section */
+        .section {
+            padding: 72px 0;
+            border-bottom: 1px solid #E9ECF0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0F2C3D;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+        }
+
+        .card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 32px 24px;
+            flex: 1;
+            min-width: 250px;
+            transition: box-shadow 0.2s, transform 0.1s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.12);
+            border-color: #C8A24550;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        /* How we work */
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 180px;
+            text-align: center;
+            padding: 20px;
+            border-left: 2px solid #C8A245;
+            background: #FCFCFD;
+        }
+
+        .step-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #C8A245;
+        }
+
+        /* Форма */
+        .form-section {
+            background-color: #F9F9FC;
+        }
+
+        .form-card {
+            max-width: 780px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #1E293B;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 16px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            border: 1px solid #CBD5E1;
+            border-radius: 6px;
+            background-color: #FFF;
+            transition: 0.2s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #C8A245;
+            box-shadow: 0 0 0 3px rgba(200,162,69,0.2);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .checkbox-group input {
+            width: 20px;
+            height: 20px;
+            margin: 0;
+        }
+
+        .btn-submit {
+            background-color: #0F2C3D;
+            color: white;
+            width: 100%;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: #1E4A62;
+        }
+
+        .alert {
+            padding: 14px;
+            border-radius: 6px;
+            margin-bottom: 24px;
+            display: none;
+        }
+
+        .alert-success {
+            background: #E5F6E9;
+            border-left: 4px solid #2E7D32;
+            color: #1E4620;
+            display: block;
+        }
+
+        .alert-error {
+            background: #FFEDED;
+            border-left: 4px solid #D32F2F;
+            color: #B71C1C;
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0F2C3D;
+            color: #CBD5E1;
+            padding: 48px 0 32px;
+            font-size: 0.85rem;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .footer-col p {
+            margin: 6px 0;
+        }
+
+        .footer a {
+            color: #C8A245;
+            text-decoration: none;
+        }
+
+        .footer hr {
+            border-color: #2C4F66;
+            margin: 24px 0;
+        }
+
+        .oferta-text {
+            font-size: 0.75rem;
+            color: #94A3B8;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            .container {
+                padding: 0 20px;
+            }
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            .nav {
+                gap: 20px;
+            }
+            .form-card {
+                padding: 28px;
+            }
+        }
+        @media (max-width: 600px) {
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-stats {
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo">
+            <h1>ООО «Интеграция»</h1>
+            <p>Патентные поверенные | Защита ИС</p>
+        </div>
+        <div class="nav">
+            <a href="#services">Услуги</a>
+            <a href="#process">Порядок</a>
+            <a href="#requestForm">Заявка</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h2>Защита интеллектуальной собственности</h2>
+                <p>Регистрация патентов, товарных знаков и авторских прав. Полное юридическое сопровождение.</p>
+                <a href="#requestForm" class="btn btn-primary">Оставить заявку →</a>
+                <div class="hero-stats">
+                    <div class="stat"><span>15+</span><br>Лет практики</div>
+                    <div class="stat"><span>870+</span><br>Защищенных объектов</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Основные направления</h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">⚖️</div>
+                    <h3>Патент на изобретение</h3>
+                    <p>Правовая охрана технических решений, способов, устройств. Патентование в РФ и за рубежом.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">®️</div>
+                    <h3>Товарный знак</h3>
+                    <p>Регистрация брендов, логотипов, слоганов. Защита от недобросовестной конкуренции.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📝</div>
+                    <h3>Авторское право</h3>
+                    <p>Регистрация программного кода, баз данных, литературных и музыкальных произведений.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="section">
+        <div class="container">
+            <h2 class="section-title">Как мы работаем</h2>
+            <div class="steps">
+                <div class="step"><div class="step-number">01</div><h4>Консультация</h4><p>Анализ объекта, проверка патентоспособности</p></div>
+                <div class="step"><div class="step-number">02</div><h4>Подготовка</h4><p>Составление заявки, описание формулы</p></div>
+                <div class="step"><div class="step-number">03</div><h4>Подача</h4><p>Отправка в Роспатент / ВОИС</p></div>
+                <div class="step"><div class="step-number">04</div><h4>Получение</h4><p>Контроль делопроизводства, выдача охранного документа</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="requestForm" class="section form-section">
+        <div class="container">
+            <div class="form-card">
+                <h2 class="section-title" style="margin-bottom: 24px;">Оставить заявку</h2>
+                <div id="formAlert" class="alert"></div>
+                <form id="consultForm">
+                    <div class="form-group">
+                        <label for="name">Полное имя *</label>
+                        <input type="text" id="name" name="name" required placeholder="Иванов Иван Иванович">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required placeholder="example@mail.ru">
+                    </div>
+                    <div class="form-group">
+                        <label for="ipType">Тип интеллектуальной собственности *</label>
+                        <select id="ipType" name="ipType" required>
+                            <option value="">— Выберите —</option>
+                            <option value="patent">Патент на изобретение</option>
+                            <option value="trademark">Товарный знак</option>
+                            <option value="copyright">Авторское право (ПО, БД, произведение)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Краткое описание объекта</label>
+                        <textarea id="message" rows="3" placeholder="Опишите суть решения, название бренда или произведение"></textarea>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="personalData" required>
+                        <label for="personalData" style="margin:0; font-weight:normal;">Я даю согласие на обработку персональных данных *</label>
+                    </div>
+                    <button type="submit" class="btn-submit">Отправить заявку</button>
+                </form>
+                <p style="font-size: 0.7rem; color:#6c757d; margin-top: 20px; text-align:center;">* — поля обязательны для заполнения</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>ООО «Интеграция»</h4>
+                <p>ИНН 9713005713</p>
+                <p>ОГРН 1237700987654 (пример)</p>
+                <p>Юр. адрес: 115114, г. Москва, наб. Дербеневская, д. 7</p>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <p>📞 +7 (499) 123-45-67</p>
+                <p>✉️ info@ip-integration.ru</p>
+                <p>Режим работы: Пн–Пт, 10:00–19:00</p>
+            </div>
+            <div class="footer-col">
+                <h4>Документы</h4>
+                <p><a href="#" id="privacyLink">Политика конфиденциальности</a></p>
+                <p><a href="#" id="consentLink">Согласие на обработку ПД</a></p>
+            </div>
+        </div>
+        <hr>
+        <div class="oferta-text">
+            Информация, представленная на сайте, не является публичной офертой. Для получения точных правовых рекомендаций необходима консультация специалиста.<br>
+            © 2025 ООО «Интеграция» — защита интеллектуальной собственности.
+        </div>
+    </div>
+</footer>
+
+<script>
+    (function() {
+        const form = document.getElementById('consultForm');
+        const alertDiv = document.getElementById('formAlert');
+
+        function showAlert(message, type) {
+            alertDiv.innerHTML = message;
+            alertDiv.className = `alert alert-${type}`;
+            setTimeout(() => {
+                alertDiv.className = 'alert';
+                alertDiv.innerHTML = '';
+            }, 5000);
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Простейшая валидация
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const ipType = document.getElementById('ipType').value;
+            const isChecked = document.getElementById('personalData').checked;
+
+            if (!name || !phone || !email || !ipType) {
+                showAlert('Пожалуйста, заполните все обязательные поля (Имя, Телефон, E-mail, Тип ИС).', 'error');
+                return;
+            }
+            if (!isChecked) {
+                showAlert('Необходимо согласие на обработку персональных данных.', 'error');
+                return;
+            }
+
+            const formData = {
+                name: name,
+                phone: phone,
+                email: email,
+                ipType: ipType,
+                message: document.getElementById('message').value.trim(),
+                timestamp: new Date().toISOString()
+            };
+
+            // Эмуляция отправки (консоль + успешное сообщение)
+            console.log('Заявка на защиту ИС отправлена:', formData);
+            console.log('Получатель: ООО "Интеграция", ИНН 9713005713');
+
+            // Здесь легко добавить реальный fetch запрос, например:
+            // fetch('https://ваш-сервер/api/lead', { method: 'POST', body: JSON.stringify(formData) })
+            
+            showAlert('✅ Заявка успешно отправлена! Наш специалист свяжется с вами в течение 1 рабочего дня.', 'success');
+            form.reset();
+            // убираем галочку и тд. но все ок.
+            document.getElementById('personalData').checked = false;
+        });
+
+        // Ссылки на юридические страницы - эмуляция модального окна либо предупреждение
+        const privacyLink = document.getElementById('privacyLink');
+        const consentLink = document.getElementById('consentLink');
+        
+        function showDemoDoc(title, content) {
+            alert(`${title}\n\n${content}\n\n(Демонстрационный режим — полная версия доступна по запросу)`);
+        }
+        
+        privacyLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            showDemoDoc('Политика конфиденциальности', 'ООО "Интеграция" обязуется не разглашать персональные данные клиентов третьим лицам, кроме случаев, предусмотренных законодательством РФ.');
+        });
+        
+        consentLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            showDemoDoc('Согласие на обработку персональных данных', 'Пользователь дает согласие на сбор, хранение и обработку персональных данных в целях оказания юридических услуг.');
+        });
+    })();
+</script>
+</body>
+</html>
